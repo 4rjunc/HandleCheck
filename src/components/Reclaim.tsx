@@ -10,6 +10,12 @@ interface SocialMedia {
   onProofReceived: (proof: any) => void;
 }
 
+console.log(
+  "ENVS:",
+  import.meta.env.VITE_PUBLIC_RECLAIM_APP_ID,
+  import.meta.env.VITE_PUBLIC_RECLAIM_APP_SECRET,
+);
+
 const APP_ID = import.meta.env.VITE_PUBLIC_RECLAIM_APP_ID;
 const APP_SECRET = import.meta.env.VITE_PUBLIC_RECLAIM_APP_SECRET;
 

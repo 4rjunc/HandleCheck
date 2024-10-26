@@ -20,6 +20,11 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+#Allow repo secrets
+env:
+  VITE_PUBLIC_RECLAIM_APP_ID: ${{ secrets.VITE_PUBLIC_RECLAIM_APP_ID }}
+  VITE_PUBLIC_RECLAIM_APP_SECRET: ${{ secrets.VITE_PUBLIC_RECLAIM_APP_SECRET }}
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:

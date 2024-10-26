@@ -1,50 +1,115 @@
-# React + TypeScript + Vite
+# HandleCheck 🔍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HandleCheck is a Telegram Mini App that simplifies social media profile verification. Built for recruiters, hiring managers, and community administrators who need to quickly verify the authenticity of social media handles shared in Telegram groups.
 
-Currently, two official plugins are available:
+## 🌟 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Quick Verification**: Generate QR codes or links for instant social media verification
+- **Multi-Platform Support**: Verify profiles across:
+  - Instagram
+  - Twitter (X)
+  - YouTube
+  - Spotify
+  - More platforms coming soon!
+- **Telegram Integration**: Seamlessly works within Telegram as a Mini App
+- **Real-Time Results**: Get immediate verification status
+- **User-Friendly Interface**: Simple, intuitive design for both verifiers and users
 
-## Expanding the ESLint configuration
+## 🎯 Problem It Solves
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+In Telegram groups and channels, people often share their social media handles for job opportunities, networking, or community participation. However, verifying the authenticity of these handles can be:
 
-- Configure the top-level `parserOptions` property like this:
+- Time-consuming
+- Error-prone
+- Difficult to track
+- Subject to impersonation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+HandleCheck solves these issues by providing a streamlined verification process that confirms ownership of social media accounts through secure proof generation.
+
+<!-- ## 🛠️ Technical Architecture -->
+<!---->
+<!-- ``` -->
+<!-- handlecheck/ -->
+<!-- ├── client/                 # Frontend Telegram Mini App -->
+<!-- ├── server/                 # Backend API server -->
+<!-- ├── bot/                    # Telegram bot implementation -->
+<!-- └── contracts/             # Smart contracts (optional for future token gating) -->
+<!-- ``` -->
+<!---->
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 16+
+- Telegram Bot Token
+- Reclaim Protocol API credentials
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/4rjunc/HandleCheck.git
+cd HandleCheck
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+# Install server dependencies
+yarn
 ```
+
+3. Configure environment variables:
+
+```bash
+cp .env.example .env
+```
+
+4. Start the development server:
+
+```bash
+# Start backend
+yarn run dev
+
+```
+
+## 🔑 Environment Variables
+
+### Server (.env)
+
+```
+# Reclaim Tokens
+VITE_PUBLIC_RECLAIM_APP_ID=<TOKEN>
+VITE_PUBLIC_RECLAIM_APP_SECRET=<TOKEN>
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## 🙏 Acknowledgments
+
+- [Telegram Mini Apps Documentation](https://core.telegram.org/bots/webapps)
+- [Reclaim Protocol](https://www.reclaimprotocol.org/)
+- All contributors and supporters
+
+## 📞 Support
+
+For support, join our [Telegram group](https://t.me/handlecheck_support) or email support@handlecheck.app
+
+## 🚀 Roadmap
+
+- [ ] Additional social media platform integrations
+- [ ] Blockchain verification options
+- [ ] Enterprise features
+- [ ] Community verification badges

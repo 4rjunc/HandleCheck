@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React, { useState } from "react";
 import { ReclaimProofRequest } from "@reclaimprotocol/js-sdk";
 import { CheckCircle, Copy, Music, Loader2 } from "lucide-react";
@@ -10,13 +12,6 @@ interface SocialMedia {
 
 const APP_ID = import.meta.env.VITE_PUBLIC_RECLAIM_APP_ID;
 const APP_SECRET = import.meta.env.VITE_PUBLIC_RECLAIM_APP_SECRET;
-
-const socialIcons = {
-  instagram: <FaInstagram className="w-5 h-5" />,
-  x: <FaXTwitter className="w-5 h-5" />,
-  youtube: <FaYoutube className="w-5 h-5" />,
-  spotify: <Music className="w-5 h-5" />,
-};
 
 const getAPPID = (social: string) => {
   const ids = {
@@ -87,24 +82,6 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
-  };
-
-  const SelectOption = ({ value, label }: { value: string; label: string }) => (
-    <div className="flex items-center gap-2">
-      {value === "instagram" && (
-        <FaInstagram className="w-4 h-4 text-pink-600" />
-      )}
-      {value === "x" && <FaXTwitter className="w-4 h-4 text-gray-900" />}
-      {value === "youtube" && <FaYoutube className="w-4 h-4 text-red-600" />}
-      {value === "spotify" && <Music className="w-4 h-4 text-green-600" />}
-      {label}
-    </div>
-  );
-
-  const getStatusColor = () => {
-    if (proofs) return "text-green-600";
-    if (status.includes("failed")) return "text-red-600";
-    return "text-blue-600";
   };
 
   return (

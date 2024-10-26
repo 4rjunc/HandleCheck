@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { ReclaimProofRequest } from "@reclaimprotocol/js-sdk";
 import { CheckCircle, Copy, Music, Loader2 } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaYoutube, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaSquareUpwork } from "react-icons/fa6";
 
 interface SocialMedia {
   onProofReceived: (proof: any) => void;
@@ -24,6 +25,8 @@ const getAPPID = (social: string) => {
     instagram: "a7dcfc29-25a6-44ca-8e7b-a3099044bc63",
     x: "2523321f-f61d-4db3-b4e6-e665af5efdc1",
     youtube: "5a939797-afe0-4ad9-8dc4-6db967841a2c",
+    github: "6d3f6753-7ee6-49ee-a545-62f1b1822ae5",
+    linkedin: "a9f1063c-06b7-476a-8410-9ff6e427e637",
     spotify: "31d6ad77-b726-4726-a5b3-330e16482ab6",
   };
   return ids[social as keyof typeof ids] || null;
@@ -131,6 +134,15 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
             {social === "instagram" && (
               <FaInstagram className="w-6 h-6 text-gray-600" />
             )}
+            {social === "upwork" && (
+              <FaSquareUpwork className="w-6 h-6 text-gray-600" />
+            )}
+            {social === "github" && (
+              <FaGithub className="w-6 h-6 text-gray-600" />
+            )}
+            {social === "linkedin" && (
+              <FaLinkedin className="w-6 h-6 text-gray-600" />
+            )}
             {social === "x" && <FaXTwitter className="w-6 h-6 text-gray-900" />}
             {social === "youtube" && (
               <FaYoutube className="w-6 h-6 text-gray-600" />
@@ -145,6 +157,8 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
             onChange={handleSocialChange}
             className="w-full pl-12 pr-10 py-3 bg-white border border-gray-300 rounded-lg appearance-none cursor-pointer hover:border-blue-500 transition-colors"
           >
+            <option value="github">Github</option>
+            <option value="linkedin">Linkedin</option>
             <option value="instagram">Instagram</option>
             <option value="x">Twitter (X)</option>
             <option value="youtube">YouTube</option>

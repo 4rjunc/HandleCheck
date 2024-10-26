@@ -10,11 +10,11 @@ interface SocialMedia {
   onProofReceived: (proof: any) => void;
 }
 
-console.log(
-  "ENVS:",
-  import.meta.env.VITE_PUBLIC_RECLAIM_APP_ID,
-  import.meta.env.VITE_PUBLIC_RECLAIM_APP_SECRET,
-);
+// console.log(
+//   "ENVS:",
+//   import.meta.env.VITE_PUBLIC_RECLAIM_APP_ID,
+//   import.meta.env.VITE_PUBLIC_RECLAIM_APP_SECRET,
+// );
 
 const APP_ID = import.meta.env.VITE_PUBLIC_RECLAIM_APP_ID;
 const APP_SECRET = import.meta.env.VITE_PUBLIC_RECLAIM_APP_SECRET;
@@ -127,7 +127,7 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
           </div>
 
           {/* Current Selected Icon */}
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 ointer-events-none">
+          <div className="absolute ms-2 left-3 top-1/2 -translate-y-1/2 ointer-events-none">
             {social === "instagram" && (
               <FaInstagram className="w-6 h-6 text-gray-600" />
             )}
@@ -206,7 +206,7 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
             type="text"
             readOnly
             value={requestUrl}
-            className="w-full p-3 border border-gray-200 rounded-lg bg-white text-sm font-mono"
+            className="w-full p-3 border border-gray-200 rounded-lg bg-white text-sm font-mono text-gray-900"
           />
         </div>
       )}

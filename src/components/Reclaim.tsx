@@ -130,22 +130,42 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
           </div>
 
           {/* Current Selected Icon */}
-          <div className="absolute ms-2 left-3 top-1/2 -translate-y-1/2 ointer-events-none">
+          <div className="absolute left-10 top-1/2 -translate-y-1/2 flex items-center gap-2">
             {social === "instagram" && (
-              <FaInstagram className="w-6 h-6 text-gray-600" />
+              <>
+                <FaInstagram className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-700">Instagram</span>
+              </>
             )}
             {social === "upwork" && (
-              <FaSquareUpwork className="w-6 h-6 text-gray-600" />
+              <>
+                <FaSquareUpwork className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-700">Upwork</span>
+              </>
             )}
             {social === "github" && (
-              <FaGithub className="w-6 h-6 text-gray-600" />
+              <>
+                <FaGithub className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-700">Github</span>
+              </>
             )}
             {social === "linkedin" && (
-              <FaLinkedin className="w-6 h-6 text-gray-600" />
+              <>
+                <FaLinkedin className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-700">Linkedin</span>
+              </>
             )}
-            {social === "x" && <FaXTwitter className="w-6 h-6 text-gray-900" />}
+            {social === "x" && (
+              <>
+                <FaXTwitter className="w-6 h-6 text-gray-900" />
+                <span className="text-gray-700">Twitter</span>
+              </>
+            )}
             {social === "youtube" && (
-              <FaYoutube className="w-6 h-6 text-gray-600" />
+              <>
+                <FaYoutube className="w-6 h-6 text-gray-600" />
+                <span className="text-gray-700">Youtube</span>
+              </>
             )}
             {social === "spotify" && (
               <Music className="w-6 h-6 text-green-600" />
@@ -159,6 +179,7 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
           >
             <option value="github">Github</option>
             <option value="linkedin">Linkedin</option>
+            <option value="upwork">Upwork</option>
             <option value="instagram">Instagram</option>
             <option value="x">Twitter (X)</option>
             <option value="youtube">YouTube</option>

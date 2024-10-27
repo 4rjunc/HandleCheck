@@ -6,10 +6,12 @@ HandleCheck is a Telegram Mini App that simplifies social media profile verifica
 
 - **Quick Verification**: Generate QR codes or links for instant social media verification
 - **Multi-Platform Support**: Verify profiles across:
-  - Instagram
+  - Github
   - Twitter (X)
   - YouTube
-  - Spotify
+  - Upwork
+  - Linkdin
+  - Instagram
   - More platforms coming soon!
 - **Telegram Integration**: Seamlessly works within Telegram as a Mini App
 - **Real-Time Results**: Get immediate verification status

@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReclaimProofRequest } from "@reclaimprotocol/js-sdk";
 import { CheckCircle, Copy, Music, Loader2 } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
@@ -39,12 +39,18 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [profileLink, setProfileLink] = useState(""); // New state for profile link
+  const [verified, setVerified] = useState(false);
 
   const handleSocialChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSocial(e.target.value);
     setRequestUrl(null);
     setProofs(null);
     setStatus("");
+  };
+
+  const handleProfileLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setProfileLink(e.target.value);
   };
 
   const setup = async () => {
@@ -66,10 +72,12 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
       const url = await reclaimProofRequest.getRequestUrl();
       setRequestUrl(url);
       setStatus("Ready for verification");
+      console.log("Verification Started");
 
       await reclaimProofRequest.startSession({
         onSuccess: (proofs: any) => {
           setProofs(proofs);
+          console.log("Verification Session Started");
           onProofReceived(proofs);
           setStatus("Verification successful!");
         },
@@ -79,7 +87,7 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
         },
       });
     } catch (error: any) {
-      setStatus("Setup failed");
+      setStatus("Setup failed", error);
     } finally {
       setIsLoading(false);
     }
@@ -93,6 +101,28 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
     }
   };
 
+  // Automatically verify username from profile link
+  useEffect(() => {
+    const verifyUsername = () => {
+      const usernameFromLink = profileLink.split("/").pop();
+
+      if (proofs && proofs.claimData) {
+        // Check if proofs and claimData exist
+        const parameters = JSON.parse(proofs.claimData.parameters);
+        const extractedUsername = parameters.paramValues.username;
+
+        if (extractedUsername === usernameFromLink) {
+          console.log("Username verified successfully!");
+          setVerified(true);
+        } else {
+          console.log("Username verification failed");
+          setVerified(false);
+        }
+      }
+    };
+    verifyUsername();
+  }, [proofs, profileLink]);
+
   return (
     <div className="max-w-2xl p-6 bg-white border border-gray-200 rounded-lg shadow mx-auto">
       {/* Header */}
@@ -101,10 +131,21 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
           <h5 className="text-2xl font-bold tracking-tight text-gray-900">
             Social Verification
           </h5>
-          <p className="text-sm text-gray-600">
-            Verify your social media accounts
-          </p>
+          <p className="text-sm text-gray-600">Verify social media accounts</p>
         </div>
+      </div>
+      {/* Profile Link Input */}
+      <div className="mb-6">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Enter Profile Link
+        </label>
+        <input
+          type="text"
+          value={profileLink}
+          onChange={handleProfileLinkChange}
+          placeholder="https://instagram.com/username"
+          className="w-full p-3 border border-gray-200 rounded-lg bg-white text-sm font-mono text-gray-900"
+        />
       </div>
       {/* Platform Selector - Updated */}
       <div className="mb-6">
@@ -246,7 +287,7 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
         </div>
       )}
       {/* Success State */}
-      {proofs && (
+      {verified && (
         <div className="mt-6 flex items-center gap-3 p-4 rounded-lg bg-green-50 border border-green-200">
           <CheckCircle className="w-6 h-6 text-green-600" />
           <div>

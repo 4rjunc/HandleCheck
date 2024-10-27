@@ -4,7 +4,14 @@ import React, { useState, useEffect } from "react";
 import { ReclaimProofRequest } from "@reclaimprotocol/js-sdk";
 import { CheckCircle, Copy, Music, Loader2 } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram, FaYoutube, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaYoutube,
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaTelegram,
+} from "react-icons/fa";
 import { FaSquareUpwork } from "react-icons/fa6";
 
 interface SocialMedia {
@@ -286,30 +293,42 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
           />
 
           {/* Share Buttons */}
-          <div className="mt-4 flex gap-4">
-            {/* WhatsApp Share Button */}
-            <a
-              href={`https://wa.me/?text=${encodeURIComponent(
-                `Verify your social media account using this link: ${requestUrl}`,
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors"
-            >
-              Share on WhatsApp
-            </a>
 
-            {/* Telegram Share Button */}
-            <a
-              href={`https://t.me/share/url?url=${encodeURIComponent(requestUrl)}&text=${encodeURIComponent(
-                "Verify your social media account using this link!",
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
-            >
-              Share on Telegram
-            </a>
+          <div className="mt-4">
+            {/* Share Link Title */}
+            <span className="text-sm font-medium text-gray-600 mb-2 block">
+              Share Link On
+            </span>
+
+            <div className="flex items-center w-full" style={{ gap: "10px" }}>
+              {/* WhatsApp Share Button */}
+              <a
+                href={`https://wa.me/?text=${encodeURIComponent(
+                  `Verify your social media account using this link: ${requestUrl}`,
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors"
+                style={{ padding: "3px 6px" }}
+              >
+                <FaWhatsapp className="mr-2" />
+                WhatsApp
+              </a>
+
+              {/* Telegram Share Button */}
+              <a
+                href={`https://t.me/share/url?url=${encodeURIComponent(requestUrl)}&text=${encodeURIComponent(
+                  "Verify your social media account using this link!",
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3 py-2 text-sm font-medium  bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
+                style={{ padding: "3px 6px" }}
+              >
+                <FaTelegram className="mr-2" />
+                Telegram
+              </a>
+            </div>
           </div>
         </div>
       )}

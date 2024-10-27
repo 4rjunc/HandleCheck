@@ -231,7 +231,6 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
             <option value="instagram">Instagram</option>
             <option value="x">Twitter (X)</option>
             <option value="youtube">YouTube</option>
-            <option value="spotify">Spotify</option>
           </select>
         </div>
       </div>{" "}

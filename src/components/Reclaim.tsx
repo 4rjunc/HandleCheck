@@ -284,6 +284,33 @@ function ReclaimDemo({ onProofReceived }: SocialMedia) {
             value={requestUrl}
             className="w-full p-3 border border-gray-200 rounded-lg bg-white text-sm font-mono text-gray-900"
           />
+
+          {/* Share Buttons */}
+          <div className="mt-4 flex gap-4">
+            {/* WhatsApp Share Button */}
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent(
+                `Verify your social media account using this link: ${requestUrl}`,
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors"
+            >
+              Share on WhatsApp
+            </a>
+
+            {/* Telegram Share Button */}
+            <a
+              href={`https://t.me/share/url?url=${encodeURIComponent(requestUrl)}&text=${encodeURIComponent(
+                "Verify your social media account using this link!",
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Share on Telegram
+            </a>
+          </div>
         </div>
       )}
       {/* Success State */}

@@ -34,6 +34,7 @@ const getAPPID = (social: string) => {
     youtube: "5a939797-afe0-4ad9-8dc4-6db967841a2c",
     github: "6d3f6753-7ee6-49ee-a545-62f1b1822ae5",
     linkedin: "a9f1063c-06b7-476a-8410-9ff6e427e637",
+    upwork: "f0912203-36b3-4cf4-b78d-30853245f6b9",
     spotify: "31d6ad77-b726-4726-a5b3-330e16482ab6",
   };
   return ids[social as keyof typeof ids] || null;

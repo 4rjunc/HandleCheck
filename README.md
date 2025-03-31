@@ -1,6 +1,6 @@
 # HandleCheck 🔍
 
-HandleCheck is a Telegram Mini App that simplifies social media profile verification. Built for recruiters, hiring managers, and community administrators who need to quickly verify the authenticity of social media handles shared in Telegram groups.
+HandleCheck is a [Telegram Mini App](https://t.me/HandleCheck_bot) that simplifies social media profile verification. Built for recruiters, hiring managers, and community administrators who need to quickly verify the authenticity of social media handles shared in Telegram groups.
 
 ## 🌟 Key Features
 
